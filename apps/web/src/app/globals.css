@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Mode */
+    --bg-neumorph: 224 229 236; /* #e0e5ec */
+    --shadow-light: 255 255 255; /* #ffffff */
+    --shadow-dark: 163 177 198; /* #a3b1c6 */
+    --text-main: 70 80 90;
+    --accent: 59 130 246; /* blue-500 */
+    
+    /* Shadow Opacities */
+    --opacity-light: 0.5;
+    --opacity-dark: 0.6;
+  }
+
+  .dark {
+    /* Dark Mode - Slate 800ish base */
+    --bg-neumorph: 45 55 72; /* #2d3748 */
+    --shadow-light: 255 255 255; /* White for highlights */
+    --shadow-dark: 0 0 0; /* Black for shadows */
+    --text-main: 226 232 240; /* #e2e8f0 */
+    --accent: 96 165 250; /* blue-400 */
+
+    /* Shadow Opacities - sharper in dark mode */
+    --opacity-light: 0.08; 
+    --opacity-dark: 0.35;
+  }
+}
+
+body {
+  color: rgb(var(--text-main));
+  background: rgb(var(--bg-neumorph));
+  transition: color 0.3s, background-color 0.3s;
+}
