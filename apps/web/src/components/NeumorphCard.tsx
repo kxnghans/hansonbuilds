@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import { cn } from "../lib/utils";
 
 interface NeumorphCardProps {

@@ -1,19 +1,19 @@
 import Link from "next/link";
 import { NeumorphCard } from "@/components/NeumorphCard";
 import { PROJECT_LIST } from "@/data/projects";
-import { ArrowRight, Smartphone, Plane, Gamepad2 } from "lucide-react";
+import { Icons } from "@/components/Icons";
 
 export default function Home() {
   const getIcon = (id: string) => {
     switch (id) {
       case "milcalc":
-        return <Smartphone className="w-8 h-8 text-neumorph-accent" />;
+        return <Icons.Smartphone className="w-8 h-8 text-neumorph-accent" />;
       case "unpack":
-        return <Plane className="w-8 h-8 text-neumorph-accent" />;
+        return <Icons.Plane className="w-8 h-8 text-neumorph-accent" />;
       case "gospelgames":
-        return <Gamepad2 className="w-8 h-8 text-neumorph-accent" />;
+        return <Icons.Gamepad2 className="w-8 h-8 text-neumorph-accent" />;
       default:
-        return <Smartphone className="w-8 h-8 text-neumorph-accent" />;
+        return <Icons.Smartphone className="w-8 h-8 text-neumorph-accent" />;
     }
   };
 
@@ -52,7 +52,7 @@ export default function Home() {
 
               <div className="mt-8 flex items-center text-neumorph-accent font-medium group-hover:opacity-80">
                 View Project
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                <Icons.ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </div>
             </NeumorphCard>
           </Link>

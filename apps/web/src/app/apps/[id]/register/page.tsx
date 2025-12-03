@@ -6,6 +6,7 @@ import Link from "next/link";
 import { NeumorphCard } from "@/components/NeumorphCard";
 import { NeumorphInput } from "@/components/NeumorphInput";
 import { NeumorphButton } from "@/components/NeumorphButton";
+import { Icons } from "@/components/Icons";
 
 export default function RegisterPage({ params }: { params: { id: string } }) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
@@ -31,7 +32,7 @@ export default function RegisterPage({ params }: { params: { id: string } }) {
       <main className="min-h-screen flex flex-col items-center justify-center p-8 text-center">
         <NeumorphCard convex className="p-10 max-w-md w-full">
           <div className="w-16 h-16 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-neumorph-concave">
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+            <Icons.Check className="w-8 h-8" />
           </div>
           <h2 className="text-3xl font-bold text-neumorph-text mb-2">You're on the list!</h2>
           <p className="text-neumorph-text/80 mb-8">Thanks for registering for {params.id}. We'll be in touch soon.</p>

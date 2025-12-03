@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, ChevronDown, ChevronUp } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { PROJECT_LIST } from "@/data/projects";
+import { Icons } from "./Icons";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,8 +17,9 @@ export const Navbar = () => {
 
   return (
     <nav className="w-full max-w-5xl flex items-center justify-between py-4 px-4 md:px-0 relative z-50">
-      <Link href="/" className="text-2xl font-bold text-neumorph-text" onClick={handleLinkClick}>
-        HansonBuilds
+      <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-neumorph-text" onClick={handleLinkClick}>
+        <Icons.Home size={24} />
+        HansOnBuilds
       </Link>
 
       <div className="flex items-center space-x-4">
@@ -31,7 +32,7 @@ export const Navbar = () => {
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle navigation"
         >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
+          {isOpen ? <Icons.X size={24} /> : <Icons.Menu size={24} />}
         </button>
       </div>
 
@@ -59,7 +60,7 @@ export const Navbar = () => {
                 className="w-full flex justify-between items-center text-neumorph-text text-lg hover:text-neumorph-accent font-medium focus:outline-none"
               >
                 Builds
-                {isBuildsOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                {isBuildsOpen ? <Icons.ChevronUp size={20} /> : <Icons.ChevronDown size={20} />}
               </button>
               
               {isBuildsOpen && (

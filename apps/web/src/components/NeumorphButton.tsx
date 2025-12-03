@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import { cn } from "../lib/utils";
 
 interface NeumorphButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -22,6 +22,12 @@ export const NeumorphButton = ({
     return (
         <button
             className={cn(baseStyles, variants[variant], className)}
+            style={{
+                "--neumorph-offset-base": "0.1875rem", // 3px
+                "--neumorph-blur-base": "0.375rem",   // 6px
+                "--neumorph-offset-mid": "0.1875rem",
+                "--neumorph-blur-mid": "0.375rem",
+            } as CSSProperties}
             {...props}
         >
             {children}

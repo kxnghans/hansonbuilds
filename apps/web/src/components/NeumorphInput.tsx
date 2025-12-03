@@ -19,7 +19,7 @@ export const NeumorphInput = ({ label, className, error = false, required, ...pr
             )}
             <input
                 className={cn(
-                    "w-full p-4 rounded-xl bg-neumorph-bg shadow-neumorph-concave focus:outline-none focus:ring-2 transition-shadow text-neumorph-text placeholder-neumorph-text/40",
+                    "w-full p-4 rounded-xl bg-neumorph-bg shadow-neumorph-concave focus:outline-none focus:ring-2 transition-shadow text-neumorph-text placeholder-neumorph-text/40 text-base",
                     focusRingColor,
                     className
                 )}

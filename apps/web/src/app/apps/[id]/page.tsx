@@ -5,7 +5,7 @@ import { useState } from "react";
 import { NeumorphCard } from "@/components/NeumorphCard";
 import { NeumorphButton } from "@/components/NeumorphButton";
 import { PROJECTS } from "@/data/projects";
-import { ArrowLeft, Check, ExternalLink, Mail, Bug } from "lucide-react";
+import { Icons } from "@/components/Icons";
 import { ContactForm } from "@/components/ContactForm";
 
 export default function AppLandingPage({ params }: { params: { id: string } }) {
@@ -28,7 +28,7 @@ export default function AppLandingPage({ params }: { params: { id: string } }) {
     <div className="flex flex-col items-center p-8 md:p-12 transition-colors duration-300 w-full">
       <nav className="w-full max-w-4xl flex justify-start items-center mb-12">
         <Link href="/" className="flex items-center text-neumorph-text hover:text-neumorph-accent transition-colors">
-          <ArrowLeft className="mr-2 w-5 h-5" />
+          <Icons.ArrowLeft className="mr-2 w-5 h-5" />
           Back to Hub
         </Link>
       </nav>
@@ -53,8 +53,8 @@ export default function AppLandingPage({ params }: { params: { id: string } }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 text-left">
             {project.features.map((feature, i) => (
               <NeumorphCard key={i} concave className="flex items-center p-5 text-neumorph-text">
-                <div className="min-w-[24px] min-h-[24px] flex items-center justify-center rounded-full bg-neumorph-accent/10 mr-4">
-                    <Check className="w-4 h-4 text-neumorph-accent" />
+                <div className="min-w-[1.5rem] min-h-[1.5rem] flex items-center justify-center rounded-full bg-neumorph-accent/10 mr-4">
+                    <Icons.Check className="w-4 h-4 text-neumorph-accent" />
                 </div>
                 <span className="font-medium">{feature}</span>
               </NeumorphCard>
@@ -63,24 +63,24 @@ export default function AppLandingPage({ params }: { params: { id: string } }) {
 
           <div className="flex flex-col md:flex-row gap-6 justify-center mt-10">
             <NeumorphButton variant="primary" className="flex items-center justify-center">
-              View Details <ExternalLink className="ml-2 w-4 h-4" />
+              View Details <Icons.ExternalLink className="ml-2 w-4 h-4" />
             </NeumorphButton>
           </div>
         </NeumorphCard>
         
         {/* Action Buttons */}
-        <div className="flex flex-col md:flex-row justify-center gap-6 mb-8">
+        <div className="flex flex-row justify-center gap-6 mb-8">
           <NeumorphButton 
             onClick={() => setActiveForm(activeForm === "waitlist" ? null : "waitlist")}
-            className={`flex items-center justify-center min-w-[200px] ${activeForm === "waitlist" ? "text-emerald-500" : ""}`}
+            className={`flex items-center justify-center min-w-[12.5rem] ${activeForm === "waitlist" ? "text-emerald-500" : ""}`}
           >
-            <Mail className="mr-2 w-5 h-5" /> Join Waitlist
+            <Icons.Mail className="mr-2 w-5 h-5" /> Join Waitlist
           </NeumorphButton>
           <NeumorphButton 
             onClick={() => setActiveForm(activeForm === "bug" ? null : "bug")}
-             className={`flex items-center justify-center min-w-[200px] ${activeForm === "bug" ? "text-red-500" : ""}`}
+             className={`flex items-center justify-center min-w-[12.5rem] ${activeForm === "bug" ? "text-red-500" : ""}`}
           >
-            <Bug className="mr-2 w-5 h-5" /> Report a Bug
+            <Icons.Bug className="mr-2 w-5 h-5" /> Report a Bug
           </NeumorphButton>
         </div>
 

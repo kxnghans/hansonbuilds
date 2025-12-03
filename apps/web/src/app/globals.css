@@ -14,6 +14,18 @@
     /* Shadow Opacities */
     --opacity-light: 0.5;
     --opacity-dark: 0.6;
+
+    /* Neumorphic Dimensions (Fluid Defaults) */
+    /* Base (Large) - used for Cards */
+    --neumorph-offset-base: clamp(2px, 0.9cqi, 0.5625rem);  /* 2px to 9px */
+    --neumorph-blur-base: clamp(4px, 1.6cqi, 1rem);         /* 4px to 16px */
+    
+    /* Medium - used for Buttons/Pressed states (approx 66%) */
+    --neumorph-offset-mid: clamp(1.5px, 0.6cqi, 0.375rem);  /* 1.5px to 6px */
+    --neumorph-blur-mid: clamp(3px, 1cqi, 0.625rem);        /* 3px to 10px */
+    
+    /* Small - used for small insets/icons (approx 55%) */
+    --neumorph-offset-sm: clamp(1px, 0.5cqi, 0.3125rem);    /* 1px to 5px */
   }
 
   .dark {
@@ -27,6 +39,22 @@
     /* Shadow Opacities - sharper in dark mode */
     --opacity-light: 0.08; 
     --opacity-dark: 0.35;
+  }
+
+  html {
+    font-size: 75%; /* Small screens: 25% smaller (12px) */
+  }
+
+  @screen md {
+    html {
+      font-size: 90%; /* Medium screens: 10% smaller (14.4px) */
+    }
+  }
+
+  @screen lg {
+    html {
+      font-size: 100%; /* Large screens: Standard (16px) */
+    }
   }
 }
 

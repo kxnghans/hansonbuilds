@@ -18,13 +18,13 @@ const config: Config = {
       },
       boxShadow: {
         "neumorph-flat": 
-          "9px 9px 16px rgb(var(--shadow-dark) / var(--opacity-dark)), -9px -9px 16px rgb(var(--shadow-light) / var(--opacity-light))",
+          "var(--neumorph-offset-base) var(--neumorph-offset-base) var(--neumorph-blur-base) rgb(var(--shadow-dark) / var(--opacity-dark)), calc(var(--neumorph-offset-base) * -1) calc(var(--neumorph-offset-base) * -1) var(--neumorph-blur-base) rgb(var(--shadow-light) / var(--opacity-light))",
         "neumorph-pressed": 
-          "inset 6px 6px 10px 0 rgb(var(--shadow-dark) / var(--opacity-dark)), inset -6px -6px 10px 0 rgb(var(--shadow-light) / var(--opacity-light))",
+          "inset var(--neumorph-offset-mid) var(--neumorph-offset-mid) var(--neumorph-blur-mid) 0 rgb(var(--shadow-dark) / var(--opacity-dark)), inset calc(var(--neumorph-offset-mid) * -1) calc(var(--neumorph-offset-mid) * -1) var(--neumorph-blur-mid) 0 rgb(var(--shadow-light) / var(--opacity-light))",
         "neumorph-convex": 
-          "6px 6px 10px 0 rgb(var(--shadow-dark) / var(--opacity-dark)), -6px -6px 10px 0 rgb(var(--shadow-light) / var(--opacity-light))",
+          "var(--neumorph-offset-mid) var(--neumorph-offset-mid) var(--neumorph-blur-mid) 0 rgb(var(--shadow-dark) / var(--opacity-dark)), calc(var(--neumorph-offset-mid) * -1) calc(var(--neumorph-offset-mid) * -1) var(--neumorph-blur-mid) 0 rgb(var(--shadow-light) / var(--opacity-light))",
         "neumorph-concave": 
-          "inset 5px 5px 10px rgb(var(--shadow-dark) / var(--opacity-dark)), inset -5px -5px 10px rgb(var(--shadow-light) / var(--opacity-light))",
+          "inset var(--neumorph-offset-sm) var(--neumorph-offset-sm) var(--neumorph-blur-mid) rgb(var(--shadow-dark) / var(--opacity-dark)), inset calc(var(--neumorph-offset-sm) * -1) calc(var(--neumorph-offset-sm) * -1) var(--neumorph-blur-mid) rgb(var(--shadow-light) / var(--opacity-light))",
       },
     },
   },

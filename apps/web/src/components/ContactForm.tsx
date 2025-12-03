@@ -8,7 +8,7 @@ import { db, storage } from "@/lib/firebase"; // Import db and storage from fire
 import { collection, addDoc, serverTimestamp } from "firebase/firestore"; // Import Firestore functions
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage"; // Import Storage functions
 import { PROJECT_LIST } from "@/data/projects";
-import { Send, Upload } from "lucide-react";
+import { Icons } from "./Icons";
 
 interface ContactFormProps {
   type: "contact" | "bug-report" | "waitlist";
@@ -144,19 +144,22 @@ export const ContactForm = ({ type, projectId }: ContactFormProps) => {
             <label htmlFor="appId" className="block text-sm font-medium text-neumorph-text mb-1 ml-1">
               <span className="text-red-500 mr-1">*</span> Select Project
             </label>
-            <select
-              id="appId"
-              name="appId"
-              className={`w-full p-3 border border-transparent rounded-lg shadow-neumorph-concave bg-neumorph-bg text-neumorph-text placeholder-neumorph-text/40 focus:outline-none focus:ring-2 ${getInputRingClass(hasError && !formData.appId)}`}
-              value={formData.appId}
-              onChange={handleChange}
-              required
-            >
-              <option value="" disabled hidden>Select Project</option> {/* Added placeholder option */}
-              {PROJECT_LIST.map((p) => (
-                <option key={p.id} value={p.id}>{p.name}</option>
-              ))}
-            </select>
+            <div className="relative"> {/* Added relative div here */}
+              <select
+                id="appId"
+                name="appId"
+                className={`w-full p-3 border border-transparent rounded-lg shadow-neumorph-concave bg-neumorph-bg text-neumorph-text placeholder-neumorph-text/40 focus:outline-none focus:ring-2 text-base appearance-none ${getInputRingClass(hasError && !formData.appId)}`}
+                value={formData.appId}
+                onChange={handleChange}
+                required
+              >
+                <option value="" disabled hidden>Select Project</option> {/* Added placeholder option */}
+                {PROJECT_LIST.map((p) => (
+                  <option key={p.id} value={p.id}>{p.name}</option>
+                ))}
+              </select>
+              <Icons.ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neumorph-text/70 pointer-events-none" /> {/* Added ChevronDown */}
+            </div>
           </div>
         )}
         
@@ -220,7 +223,7 @@ export const ContactForm = ({ type, projectId }: ContactFormProps) => {
                 id="message"
                 name="message"
                 rows={4}
-                className={`w-full p-3 border border-transparent rounded-lg shadow-neumorph-concave bg-neumorph-bg text-neumorph-text placeholder-neumorph-text/40 focus:outline-none focus:ring-2 ${getInputRingClass(hasError)}`}
+                className={`w-full p-3 border border-transparent rounded-lg shadow-neumorph-concave bg-neumorph-bg text-neumorph-text placeholder-neumorph-text/40 focus:outline-none focus:ring-2 text-base ${getInputRingClass(hasError)}`}
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="How can we help you?"
@@ -240,7 +243,7 @@ export const ContactForm = ({ type, projectId }: ContactFormProps) => {
                 id="description"
                 name="description"
                 rows={4}
-                className={`w-full p-3 border border-transparent rounded-lg shadow-neumorph-concave bg-neumorph-bg text-neumorph-text placeholder-neumorph-text/40 focus:outline-none focus:ring-2 ${getInputRingClass(hasError)}`}
+                className={`w-full p-3 border border-transparent rounded-lg shadow-neumorph-concave bg-neumorph-bg text-neumorph-text placeholder-neumorph-text/40 focus:outline-none focus:ring-2 text-base ${getInputRingClass(hasError)}`}
                 value={formData.description}
                 onChange={handleChange}
                 placeholder="Describe what happened..."
@@ -251,19 +254,22 @@ export const ContactForm = ({ type, projectId }: ContactFormProps) => {
               <label htmlFor="severity" className="block text-sm font-medium text-neumorph-text mb-1 ml-1">
                  <span className="text-red-500 mr-1">*</span> Severity
               </label>
-              <select
-                id="severity"
-                name="severity"
-                className={`w-full p-3 border border-transparent rounded-lg shadow-neumorph-concave bg-neumorph-bg text-neumorph-text placeholder-neumorph-text/40 focus:outline-none focus:ring-2 ${getInputRingClass(false)}`} // Severity usually has a default, so rarely an error
-                value={formData.severity}
-                onChange={handleChange}
-                required
-              >
-                <option value="low">Low</option>
-                <option value="medium">Medium</option>
-                <option value="high">High</option>
-                <option value="critical">Critical</option>
-              </select>
+              <div className="relative"> {/* Added relative div here */}
+                <select
+                  id="severity"
+                  name="severity"
+                  className={`w-full p-4 border border-transparent rounded-xl shadow-neumorph-concave bg-neumorph-bg text-neumorph-text placeholder-neumorph-text/40 focus:outline-none focus:ring-2 text-base appearance-none ${getInputRingClass(false)}`}
+                  value={formData.severity}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">High</option>
+                  <option value="critical">Critical</option>
+                </select>
+                <Icons.ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neumorph-text/70 pointer-events-none" /> {/* Added ChevronDown */}
+              </div>
             </div>
             
             {/* File Upload for Bug Report */}
@@ -282,12 +288,12 @@ export const ContactForm = ({ type, projectId }: ContactFormProps) => {
                      />
                      <label 
                         htmlFor="supportingDoc" 
-                        className={`flex items-center justify-between w-full p-3 border border-transparent rounded-lg shadow-neumorph-concave bg-neumorph-bg text-neumorph-text cursor-pointer hover:bg-neumorph-bg/50 transition-colors focus:outline-none focus:ring-2 ${getInputRingClass(false)}`}
+                        className={`flex items-center justify-between w-full p-3 border border-transparent rounded-lg shadow-neumorph-concave bg-neumorph-bg text-neumorph-text cursor-pointer hover:bg-neumorph-bg/50 transition-colors focus:outline-none focus:ring-2 text-base ${getInputRingClass(false)}`}
                      >
                         <span className={`truncate ${!file ? 'text-neumorph-text/40' : 'text-neumorph-text'}`}>
                             {file ? file.name : "Upload screenshot or PDF (Optional)"}
                         </span>
-                        <Upload className="w-5 h-5 text-neumorph-text/60" />
+                        <Icons.Upload className="w-5 h-5 text-neumorph-text/60" />
                      </label>
                 </div>
                  <p className="text-xs text-neumorph-text/60 mt-1 ml-1">
@@ -297,10 +303,20 @@ export const ContactForm = ({ type, projectId }: ContactFormProps) => {
           </>
         )}
 
-        <NeumorphButton type="submit" disabled={isSubmitting} className="flex items-center justify-center max-w-xs mx-auto">
-          <Send className="w-4 h-4 mr-2" />
+        <button 
+          type="submit" 
+          disabled={isSubmitting} 
+          className="flex items-center justify-center max-w-xs mx-auto py-3 px-6 rounded-xl font-bold transition-all active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed bg-neumorph-bg text-neumorph-text shadow-neumorph-flat active:shadow-neumorph-pressed"
+          style={{ 
+            "--neumorph-offset-base": "0.1875rem", 
+            "--neumorph-blur-base": "0.375rem",
+            "--neumorph-offset-mid": "0.1875rem",
+            "--neumorph-blur-mid": "0.375rem",
+          } as React.CSSProperties}
+        >
+          <Icons.Send className="w-4 h-4 mr-2" />
           {isSubmitting ? "Sending..." : btnText}
-        </NeumorphButton>
+        </button>
 
         {submitStatus === "success" && (
           <p className="text-green-500 mt-2 text-center font-medium">
