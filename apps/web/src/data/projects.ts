@@ -5,6 +5,7 @@ export const PROJECTS: Record<string, AppProject> = {
     id: "milcalc",
     name: "MilCalc",
     tagline: "Modern Military Finance & Fitness",
+    shortDescription: ["Simplify military finance and fitness with accurate, altitude-adjusted calculations.", "Handles complex pay charts and regulations so you can focus on the mission."],
     description:
       "MilCalc is a comprehensive suite of tools designed for United States military personnel. It strips away the complexity of government pay charts and fitness regulations, offering a clean, neumorphic interface for accurate calculations. From estimating retirement under the BRS system to adjusting PT scores for altitude, MilCalc handles the math so service members can focus on the mission.",
     features: [
@@ -16,11 +17,27 @@ export const PROJECTS: Record<string, AppProject> = {
       "Biometric Authentication",
     ],
     techStack: ["React Native", "Expo", "Supabase", "TypeScript", "PostgreSQL"],
+    image: "/assets/milcalc/milcalc.png",
+    heroCharacterImage: "/assets/milcalc_1.png",
+    screenshots: [
+      "/assets/milcalc/m1.PNG",
+      "/assets/milcalc/m2.PNG",
+      "/assets/milcalc/m3.PNG",
+      "/assets/milcalc/m4.PNG",
+      "/assets/milcalc/mA.PNG",
+      "/assets/milcalc/mB.PNG",
+      "/assets/milcalc/mC.PNG",
+      "/assets/milcalc/mD.PNG",
+      "/assets/milcalc/mE.PNG",
+      "/assets/milcalc/mF.PNG",
+      "/assets/milcalc/mG.PNG",
+    ],
   },
   gospelgames: {
     id: "gospelgames",
     name: "Gospel Games",
     tagline: "The Party in Your Pocket",
+    shortDescription: ["High-energy social games and icebreakers designed to foster community in Christian gatherings.", "Avoid the 'cheesy' trope with modern mechanics and aesthetics."],
     description:
       "Designed for youth pastors, small group leaders, and retreats, Gospel Games brings high-energy social interaction to Biblical themes. Avoiding the 'cheesy' trope of Christian media, it utilizes a vibrant Claymorphism aesthetic and modern game mechanics to foster genuine community connections. Whether breaking the ice or engaging in deep theological debates, it's the ultimate toolkit for Christian gatherings.",
     features: [
@@ -32,11 +49,31 @@ export const PROJECTS: Record<string, AppProject> = {
       "Daily Scripture Wordle",
     ],
     techStack: ["React Native", "Reanimated", "Firebase", "Expo"],
+    image: "/assets/gospelgames/gospelgames.png",
+    screenshots: [
+      "/assets/gospelgames/g1.PNG",
+      "/assets/gospelgames/g2.PNG",
+      "/assets/gospelgames/g3.PNG",
+      "/assets/gospelgames/g4.PNG",
+      "/assets/gospelgames/g5.PNG",
+      "/assets/gospelgames/g6.PNG",
+      "/assets/gospelgames/g7.PNG",
+      "/assets/gospelgames/g8.PNG",
+      "/assets/gospelgames/gA.PNG",
+      "/assets/gospelgames/gB.PNG",
+      "/assets/gospelgames/gC.PNG",
+      "/assets/gospelgames/gD.PNG",
+      "/assets/gospelgames/gE.PNG",
+      "/assets/gospelgames/gF.PNG",
+      "/assets/gospelgames/gG.PNG",
+      "/assets/gospelgames/gH.PNG",
+    ],
   },
   unpack: {
     id: "unpack",
     name: "Unpack",
     tagline: "Get it out of the group chat",
+    shortDescription: ["Collaborative travel planning that gets your itinerary out of the group chat and into action.", "Real-time tracking for packing lists, expenses, and schedules."],
     description:
       "Group travel planning is broken. It lives in messy group chats, buried spreadsheets, and lost email threads. Unpack creates a centralized, collaborative hub for your next adventure. Assign packing responsibilities, vote on itineraries, and track shared expenses in real-time. It's your digital travel buddy that ensures no one forgets their toothbrush—or their passport.",
     features: [
@@ -48,7 +85,17 @@ export const PROJECTS: Record<string, AppProject> = {
       "Offline Mode",
     ],
     techStack: ["Next.js", "Expo", "Turborepo", "Tailwind CSS"],
+    image: "/assets/unpack/unpack.png",
+    screenshots: [
+      "/assets/unpack/u1.PNG",
+      "/assets/unpack/u2.PNG",
+      "/assets/unpack/u3.PNG",
+      "/assets/unpack/uA.PNG",
+      "/assets/unpack/uB.PNG",
+      "/assets/unpack/uC.PNG",
+    ],
   },
 };
+
 
 export const PROJECT_LIST = Object.values(PROJECTS);

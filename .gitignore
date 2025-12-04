@@ -39,3 +39,6 @@ coverage
 .idea
 *.swp
 *.swo
+
+# Temporary image files
+image*.png

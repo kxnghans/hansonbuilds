@@ -1,6 +1,5 @@
-"use client";
-
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { NeumorphCard } from "./NeumorphCard";
 import { NeumorphButton } from "./NeumorphButton";
 import { NeumorphInput } from "./NeumorphInput";
@@ -36,8 +35,14 @@ export const ContactForm = ({ type, projectId }: ContactFormProps) => {
     if (submitStatus === "error") {
         setSubmitStatus(null);
     }
+    // Reset success status on new input to reset button animation
+    if (submitStatus === "success") {
+        setSubmitStatus(null);
+    }
   };
-
+  
+  // ... rest of the component until the button ...
+  
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       setFile(e.target.files[0]);
@@ -306,7 +311,7 @@ export const ContactForm = ({ type, projectId }: ContactFormProps) => {
         <button 
           type="submit" 
           disabled={isSubmitting} 
-          className="flex items-center justify-center max-w-xs mx-auto py-3 px-6 rounded-xl font-bold transition-all active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed bg-neumorph-bg text-neumorph-text shadow-neumorph-flat active:shadow-neumorph-pressed"
+          className="flex items-center justify-center max-w-xs mx-auto py-3 px-6 rounded-xl font-bold transition-all active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed bg-neumorph-bg text-neumorph-text shadow-neumorph-flat active:shadow-neumorph-pressed overflow-hidden"
           style={{ 
             "--neumorph-offset-base": "0.1875rem", 
             "--neumorph-blur-base": "0.375rem",
@@ -314,8 +319,27 @@ export const ContactForm = ({ type, projectId }: ContactFormProps) => {
             "--neumorph-blur-mid": "0.375rem",
           } as React.CSSProperties}
         >
-          <Icons.Send className="w-4 h-4 mr-2" />
-          {isSubmitting ? "Sending..." : btnText}
+          <div className="relative flex items-center justify-center">
+             <motion.div
+               initial={{ x: 0, y: 0, rotate: 0, opacity: 1 }}
+               animate={
+                  submitStatus === "success" 
+                  ? { x: 100, y: -10, rotate: -20, opacity: 0 } 
+                  : { x: 0, y: 0, rotate: 0, opacity: 1 }
+               }
+               transition={{ duration: 0.6, ease: "easeInOut" }}
+               className="mr-2"
+             >
+               <Icons.PaperPlane className="w-4 h-4" />
+             </motion.div>
+             
+             <motion.span
+                animate={{ opacity: submitStatus === "success" ? 0 : 1 }}
+                transition={{ duration: 0.3 }}
+             >
+                {isSubmitting ? "Sending..." : btnText}
+             </motion.span>
+          </div>
         </button>
 
         {submitStatus === "success" && (

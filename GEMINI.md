@@ -48,6 +48,11 @@ This document serves as the development entry point and context for the HansonBu
 - Build core UI components (Cards, Buttons, Inputs) using these styles.
 
 ### Phase 3: Core Features
-- **Home/Hub Page:** Grid or unique layout linking to projects.
-- **Project Template:** Reusable layout for individual App Landing Pages.
-- **Data Capture:** Integration for email forms (to be defined).
+- **Home/Hub Page:** 
+    - Implemented "Half-Oval Project Carousel" with 3D positioning and fluid animations.
+    - Features active state character pop-ups triggered by hover or scroll visibility.
+    - Responsive Scaling: Cards scaled to ~75% on small screens and ~90% on medium screens relative to large desktop size.
+    - Hover Dynamics: Non-active cards retreat further from the center when the carousel is hovered to spotlight the hero card.
+- **Project Template:** Reusable layout for individual App Landing Pages with segmented "Project Selector" navigation.
+- **Data Capture:** Integration for email forms (Waitlist/Bug Reports).
+- **Data Model:** Added `shortDescription` to project types for concise carousel text.

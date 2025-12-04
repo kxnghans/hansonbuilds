@@ -3,8 +3,12 @@ export interface AppProject {
   name: string;
   tagline: string;
   description: string;
+  shortDescription?: string[];
   features: string[];
   techStack: string[];
+  image: string;
+  heroCharacterImage?: string;
+  screenshots?: string[];
   links?: {
     demo?: string;
     repo?: string;
