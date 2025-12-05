@@ -1,11 +1,10 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import { motion, useInView, PanInfo } from "framer-motion";
+import { motion, PanInfo } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-
-const DRAG_BUFFER = 50;
+import { useCarousel } from "@/hooks/useCarousel";
 
 interface AppScreenshotsCarouselProps {
   screenshots?: string[];
@@ -16,7 +15,12 @@ export function AppScreenshotsCarousel({ screenshots = [], initialActiveScreensh
   const initialIndex = initialActiveScreenshot
     ? screenshots.findIndex(src => src === initialActiveScreenshot)
     : 0;
-  const [activeIndex, setActiveIndex] = useState(initialIndex >= 0 ? initialIndex : 0);
+    
+  const { activeIndex, setIndex, next, prev, handleDragEnd, getRelativeIndex } = useCarousel({
+    count: screenshots.length,
+    initialIndex: initialIndex >= 0 ? initialIndex : 0
+  });
+
   const containerRef = useRef<HTMLDivElement>(null);
   
   const [isHovered, setIsHovered] = useState(false);
@@ -51,34 +55,38 @@ export function AppScreenshotsCarousel({ screenshots = [], initialActiveScreensh
     if (screenshots.length <= 1 || shouldHighlight) return;
     
     const timer = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % screenshots.length);
+      next();
     }, 3000);
     return () => clearInterval(timer);
-  }, [screenshots.length, shouldHighlight]);
+  }, [screenshots.length, shouldHighlight, next]);
 
   if (!screenshots.length) return null;
 
   const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % screenshots.length);
+    next();
     if (isTouchDevice) setIsAutoFocused(true);
   };
 
   const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + screenshots.length) % screenshots.length);
+    prev();
     if (isTouchDevice) setIsAutoFocused(true);
   };
 
-  const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-    if (info.offset.x < -DRAG_BUFFER) {
-      handleNext();
-    } else if (info.offset.x > DRAG_BUFFER) {
-      handlePrev();
-    }
+  // Wrapper for drag to include touch focus side effect
+  const onDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+      handleDragEnd(event, info);
+      // Note: useCarousel's handleDragEnd calls next()/prev().
+      // We want to ensure focus is set if a drag occurs.
+      // Since handleDragEnd triggers the state change, we can just detect the drag result.
+      // However, simplest way to mirror original behavior is to re-implement the check or just set focused.
+      if (Math.abs(info.offset.x) > 50) {
+         if (isTouchDevice) setIsAutoFocused(true);
+      }
   };
 
   const getVariant = (index: number) => {
+    const diff = getRelativeIndex(index);
     const length = screenshots.length;
-    let diff = (index - activeIndex + length) % length;
     
     let positionStr = "hidden";
     if (diff === 0) positionStr = "center";
@@ -170,7 +178,7 @@ export function AppScreenshotsCarousel({ screenshots = [], initialActiveScreensh
         {screenshots.map((src, index) => {
           const isActive = index === activeIndex;
           const length = screenshots.length;
-          const diff = (index - activeIndex + length) % length;
+          const diff = getRelativeIndex(index);
           const isRight = diff === 1;
           const isLeft = diff === length - 1;
           
@@ -187,7 +195,7 @@ export function AppScreenshotsCarousel({ screenshots = [], initialActiveScreensh
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={0.1}
-              onDragEnd={handleDragEnd}
+              onDragEnd={onDragEnd}
               onTap={() => {
                 if (isRight) handleNext();
                 if (isLeft) handlePrev();
@@ -252,7 +260,7 @@ export function AppScreenshotsCarousel({ screenshots = [], initialActiveScreensh
            <button
              key={i} 
              onClick={() => {
-               setActiveIndex(i);
+               setIndex(i);
                if (isTouchDevice) setIsAutoFocused(true);
              }}
              className={cn(

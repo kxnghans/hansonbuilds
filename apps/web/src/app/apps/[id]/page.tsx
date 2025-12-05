@@ -83,7 +83,7 @@ export default function AppLandingPage({ params }: { params: { id: string } }) {
   };
 
   return (
-    <div className="flex flex-col items-center p-8 md:p-12 transition-colors duration-300 w-full">
+    <div className="flex flex-col items-center p-3 transition-colors duration-300 w-full">
       <nav className="w-full max-w-4xl flex items-center gap-4 mb-12 relative z-30 mx-auto">
         <Link href="/" className="flex-shrink-0 flex items-center text-neumorph-text hover:text-neumorph-accent transition-colors">
           <Icons.ArrowLeft className="mr-2 w-5 h-5" />
@@ -109,7 +109,7 @@ export default function AppLandingPage({ params }: { params: { id: string } }) {
               )}
               aria-label="View Tech Stack"
             >
-              <Icons.Code className="w-6 h-6" />
+              <Icons.FaCode className="w-6 h-6" />
             </button>
           </div>
 
