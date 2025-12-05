@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="text-center py-16 md:py-24 mb-8 px-4">
+      <section className="relative z-30 text-center py-16 md:py-24 mb-8 px-4">
         <h1 className="text-5xl md:text-6xl font-extrabold text-neumorph-text mb-6 leading-tight">
           HansonBuilds
         </h1>

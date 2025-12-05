@@ -18,7 +18,9 @@ export const PROJECTS: Record<string, AppProject> = {
     ],
     techStack: ["React Native", "Expo", "Supabase", "TypeScript", "PostgreSQL"],
     image: "/assets/milcalc/milcalc.png",
-    heroCharacterImage: "/assets/milcalc_1.png",
+    heroCharacterImage: "/assets/milcalc/milcalc_1.png",
+    initialActiveScreenshot: "/assets/milcalc/mE.PNG",
+    popHeightRatio: 0.77,
     screenshots: [
       "/assets/milcalc/m1.PNG",
       "/assets/milcalc/m2.PNG",
@@ -50,6 +52,7 @@ export const PROJECTS: Record<string, AppProject> = {
     ],
     techStack: ["React Native", "Reanimated", "Firebase", "Expo"],
     image: "/assets/gospelgames/gospelgames.png",
+    popHeightRatio: 0.70,
     screenshots: [
       "/assets/gospelgames/g1.PNG",
       "/assets/gospelgames/g2.PNG",
@@ -86,6 +89,7 @@ export const PROJECTS: Record<string, AppProject> = {
     ],
     techStack: ["Next.js", "Expo", "Turborepo", "Tailwind CSS"],
     image: "/assets/unpack/unpack.png",
+    popHeightRatio: 0.77,
     screenshots: [
       "/assets/unpack/u1.PNG",
       "/assets/unpack/u2.PNG",

@@ -40,5 +40,9 @@ coverage
 *.swp
 *.swo
 
-# Temporary image files
-image*.png
+
+# TypeScript
+*.tsbuildinfo
+
+# Assets
+apps/web/public/assets/

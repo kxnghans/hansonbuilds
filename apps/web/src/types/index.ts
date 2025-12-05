@@ -9,6 +9,8 @@ export interface AppProject {
   image: string;
   heroCharacterImage?: string;
   screenshots?: string[];
+  popHeightRatio?: number;
+  initialActiveScreenshot?: string;
   links?: {
     demo?: string;
     repo?: string;
