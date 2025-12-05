@@ -173,7 +173,7 @@ export default function AppLandingPage({ params }: { params: { id: string } }) {
             ))}
           </div>
 
-          <AppScreenshotsCarousel screenshots={project.screenshots} />
+          <AppScreenshotsCarousel screenshots={project.screenshots} initialActiveScreenshot={project.initialActiveScreenshot} />
         </NeumorphCard>
         
         {/* Action Buttons */}

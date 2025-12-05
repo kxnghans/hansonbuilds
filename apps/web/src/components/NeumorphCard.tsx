@@ -23,7 +23,7 @@ export const NeumorphCard = ({
   return (
     <div
       onClick={onClick}
-      className={cn("bg-neumorph-bg rounded-2xl", shadowClass, className)}
+      className={cn("bg-neumorph-bg rounded-xl", shadowClass, className)}
     >
       {children}
     </div>
