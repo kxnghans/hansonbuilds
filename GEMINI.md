@@ -8,6 +8,10 @@ This document serves as the development entry point and context for the HansonBu
 2.  **Aggregation:** Centralize access to independent app projects.
 3.  **Growth:** Collect user data/leads (waitlists, newsletters) for specific apps.
 
+## Interaction Guidelines
+- **Proactive Updates:** Communicate actions **before** starting, provide progress **during** execution, and summarize **after** completion.
+- **Style:** Keep all communication concise, simple, and direct.
+
 ## Design Philosophy
 - **Aesthetic:** **Neumorphic (Soft UI)**.
     - Emphasis on subtle shadows, highlights, and depth to create a tactile, "extruded" plastic feel.
